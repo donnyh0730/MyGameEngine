@@ -14,7 +14,7 @@ GDIPlusManager gdipm;
 
 App::App()
 	:
-	wnd( 800,600,"The Donkey Fart Box" ),
+	wnd( 800,600,"Point Light Simulation imGUI활용" ),
 	light( wnd.Gfx() )
 {
 	class Factory
@@ -49,9 +49,9 @@ App::App()
 		Graphics& gfx;
 		std::mt19937 rng{ std::random_device{}() };
 		std::uniform_int_distribution<int> sdist{ 0,1 };
-		std::uniform_real_distribution<float> adist{ 0.0f,PI * 2.0f };
-		std::uniform_real_distribution<float> ddist{ 0.0f,PI * 0.5f };
-		std::uniform_real_distribution<float> odist{ 0.0f,PI * 0.08f };
+		std::uniform_real_distribution<float> adist{ 0.0f,PI * 2.0f };//yaw
+		std::uniform_real_distribution<float> ddist{ 0.0f,PI * 0.5f };//pitch
+		std::uniform_real_distribution<float> odist{ 0.0f,PI * 0.08f };//roll
 		std::uniform_real_distribution<float> rdist{ 6.0f,20.0f };
 		std::uniform_real_distribution<float> bdist{ 0.4f,3.0f };
 		std::uniform_real_distribution<float> cdist{ 0.0f,1.0f };
@@ -59,7 +59,7 @@ App::App()
 	};
 
 	drawables.reserve( nDrawables );
-	std::generate_n( std::back_inserter( drawables ),nDrawables,Factory{ wnd.Gfx() } );
+	std::generate_n( std::back_inserter( drawables ),nDrawables,Factory{ wnd.Gfx() } );//n개의 오브젝트들을 랜덤한 위치에 랜덤한 회전 값으로 생성한다.
 
 	wnd.Gfx().SetProjection( dx::XMMatrixPerspectiveLH( 1.0f,3.0f / 4.0f,0.5f,40.0f ) );
 }
@@ -78,7 +78,7 @@ void App::DoFrame()
 	}
 	light.Draw( wnd.Gfx() );
 
-	// imgui window to control simulation speed
+	// 시뮬레이션 스피드 조절을 위한 imgui
 	if( ImGui::Begin( "Simulation Speed" ) )
 	{
 		ImGui::SliderFloat( "Speed Factor",&speed_factor,0.0f,6.0f,"%.4f",3.2f );
@@ -86,11 +86,12 @@ void App::DoFrame()
 		ImGui::Text( "Status: %s",wnd.kbd.KeyIsPressed( VK_SPACE ) ? "PAUSED" : "RUNNING (hold spacebar to pause)" );
 	}
 	ImGui::End();
-	// imgui windows to control camera and light
+	// 카메라 컨트롤 윈도우 
 	cam.SpawnControlWindow();
+	// light 컨트롤 윈도우
 	light.SpawnControlWindow();
 
-	// present
+	// 전프레임
 	wnd.Gfx().EndFrame();
 }
 

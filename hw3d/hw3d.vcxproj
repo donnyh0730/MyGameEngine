@@ -246,9 +246,6 @@
     <ResourceCompile Include="hw3d.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="chili.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="DXGetErrorDescription.inl" />
     <None Include="DXGetErrorString.inl" />
     <None Include="DXTrace.inl" />
