@@ -7,6 +7,7 @@
 // The following #defines disable a bunch of unused windows stuff. If you 
 // get weird errors when trying to do some windows stuff, try removing some
 // (or all) of these defines (it will increase build time though).
+// 게임엔진에서 자주 사용하지 않는 윈도우 API 기능들을 미리 컴파일 하지않도록 막는 헤더 파일이다.
 #ifndef FULL_WINTARD
 #define WIN32_LEAN_AND_MEAN
 #define NOGDICAPMASKS
