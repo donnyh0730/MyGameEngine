@@ -3,7 +3,7 @@
 #include <vector>
 #include <array>
 #include "IndexedTriangleList.h"
-#include "ChiliMath.h"
+#include "MyMath.h"
 
 class Plane
 {

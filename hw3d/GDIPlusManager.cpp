@@ -1,6 +1,6 @@
 
 #define FULL_WINTARD
-#include "ChiliWin.h"
+#include "PreDefineWin.h"
 #include "GDIPlusManager.h"
 #include <algorithm>
 namespace Gdiplus

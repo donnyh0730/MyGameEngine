@@ -1,11 +1,11 @@
 #pragma once
 #include <chrono>
 
-class ChiliTimer
+class AppTimer
 {
 public:
-	ChiliTimer() noexcept;
-	float Mark() noexcept;
+	AppTimer() noexcept;
+	float GetDeltaTime() noexcept;
 	float Peek() const noexcept;
 private:
 	std::chrono::steady_clock::time_point last;

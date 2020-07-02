@@ -1,6 +1,6 @@
 #pragma once
 #include "Window.h"
-#include "ChiliTimer.h"
+#include "AppTimer.h"
 #include "ImguiManager.h"
 #include "Camera.h"
 #include "PointLight.h"
@@ -17,7 +17,7 @@ private:
 private:
 	ImguiManager imgui;
 	Window wnd;
-	ChiliTimer timer;
+	AppTimer timer;
 	std::vector<std::unique_ptr<class Drawable>> drawables;
 	float speed_factor = 1.0f;
 	Camera cam;
