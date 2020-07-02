@@ -1,6 +1,6 @@
 #pragma once
 #include "ChiliWin.h"
-#include "ChiliException.h"
+#include "MyException.h"
 #include <d3d11.h>
 #include <wrl.h>
 #include <vector>

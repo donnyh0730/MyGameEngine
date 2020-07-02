@@ -20,7 +20,7 @@
 ******************************************************************************************/
 #pragma once
 #include "ChiliWin.h"
-#include "ChiliException.h"
+#include "MyException.h"
 #include <string>
 #include <assert.h>
 #include <memory>
